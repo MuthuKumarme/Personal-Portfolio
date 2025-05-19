@@ -1,0 +1,257 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+}
+
+header {
+    background: linear-gradient(to right, #7f00ff, #e100ff);
+    /* gradient */
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.left-section {
+    flex: 1 1 300px;
+    text-align: center;
+    animation: fadeInLeft 1s ease;
+}
+
+.left-section .icons i {
+    font-size: 28px;
+    color: black;
+    padding-left: 10px;
+}
+
+.left-section img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.right-section {
+    flex: 2 1 800px;
+    padding-left: 40px;
+    text-align: justify;
+    animation: fadeInRight 1s ease;
+}
+
+.right-section .cyber {
+    #cybersecurity-skills {
+        padding: 40px 20px;
+        background-color: #1e1e1e;
+        color: white;
+    }
+
+    #cybersecurity-skills h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #007bff;
+        display: inline-block;
+    }
+
+    .skill {
+        margin-bottom: 20px;
+    }
+
+    .skill h3 {
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .progress-bar {
+        width: 100%;
+        background-color: #333;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 10px;
+        margin-top: 5px;
+    }
+
+    .progress-bar .fill {
+        height: 100%;
+        background-color: #007bff;
+        width: 0;
+        transition: width 1s ease-in-out;
+    }
+}
+
+.right-section .skill {
+    #skills {
+        color: #fff;
+        padding: 20px;
+    }
+
+    .skill {
+        margin-bottom: 15px;
+    }
+
+    .skill p {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 5px;
+    }
+
+    .progress {
+        background-color: #2c2c2c;
+        border-radius: 5px;
+        overflow: hidden;
+        height: 8px;
+    }
+
+    .bar {
+        height: 100%;
+        background-color: #007bff;
+        transition: width 0.5s ease-in-out;
+    }
+}
+
+
+
+
+/* Typing animation */
+.home-info h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: 0.7px rgb(20, 22, 18);
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes display-text {
+
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+.home-info h2 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid black;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+
+@keyframes fill-text {
+
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        /* Keep in row for mobile navbar */
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 16px;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        font-size: 1.8rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        background: linear-gradient(to right, #7f00ff, #e100ff);
+        position: absolute;
+        top: 60px;
+        /* adjust based on nav height */
+        left: 0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu a {
+        color: white;
+        padding: 15px 20px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .right-section {
+        padding-left: 0;
+    }
+}
+
